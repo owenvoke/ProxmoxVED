@@ -1,0 +1,66 @@
+{
+  "name": "RuneScape Dragonwilds",
+  "slug": "runescape-dragonwilds",
+  "categories": [
+    24
+  ],
+  "date_created": "2026-08-01",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "has_arm": false,
+  "interface_port": null,
+  "documentation": "https://dragonwilds.runescape.com/news/how-to-dedicated-servers",
+  "website": "https://dragonwilds.runescape.com/",
+  "logo": "https://framerusercontent.com/images/HNvvnjsmGr6skhEuQgbOS8pe5Mk.png",
+  "config_path": "/opt/runescape-dragonwilds/dragonwilds.env",
+  "description": "RuneScape: Dragonwilds is a co-operative survival crafting game set on RuneScape's forgotten continent of Ashenfall. This script installs the dedicated server (Steam app 4019830) via SteamCMD so you can host a persistent world for up to six players.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/runescape-dragonwilds.sh",
+      "config_path": "/opt/runescape-dragonwilds/dragonwilds.env",
+      "resources": {
+        "cpu": 4,
+        "ram": 8192,
+        "hdd": 20,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "The server is installed but not started. Set OWNER_ID in /opt/runescape-dragonwilds/dragonwilds.env, then run: systemctl start runescape-dragonwilds",
+      "type": "warning"
+    },
+    {
+      "text": "Your Owner ID is your RuneScape: Dragonwilds player ID, shown at the bottom of the in-game settings menu. It is mandatory for the server to start.",
+      "type": "info"
+    },
+    {
+      "text": "A generated admin password is stored in /opt/runescape-dragonwilds/dragonwilds.env. Anyone who knows it can open the Server Management tab in the in-game pause menu.",
+      "type": "info"
+    },
+    {
+      "text": "The host CPU must support the AVX instruction set, otherwise the server binary will not run.",
+      "type": "warning"
+    },
+    {
+      "text": "Allow 7777/UDP (game) and 27015/UDP (Steam query) through any firewall or router. Both are configurable in the env file.",
+      "type": "info"
+    },
+    {
+      "text": "Jagex caps dedicated servers at 6 players. Plan for 2GB RAM plus 1GB per player.",
+      "type": "info"
+    },
+    {
+      "text": "To find your server in-game, open the Public tab of the Worlds screen and search for the exact world name (case sensitive).",
+      "type": "info"
+    }
+  ]
+}
