@@ -1,0 +1,49 @@
+{
+  "name": "Scrob",
+  "slug": "scrob",
+  "categories": [
+    13
+  ],
+  "date_created": "2026-08-02",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 7330,
+  "documentation": "https://github.com/ellite/scrob/blob/main/README.md",
+  "website": "https://github.com/ellite/scrob",
+  "repository": "https://github.com/ellite/scrob",
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/scrob.webp",
+  "description": "Scrob is a self-hosted media tracker in the spirit of Letterboxd and Trakt. It syncs libraries from Jellyfin, Plex, Emby, Nuvio and Stremio, records watch history, ratings and lists, and supports real-time scrobbling via webhooks as well as Trakt, Simkl and MDBList integration through a progressive web app.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/scrob.sh",
+      "config_path": "/opt/scrob/.env",
+      "resources": {
+        "cpu": 2,
+        "ram": 4096,
+        "hdd": 10,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "Open http://<IP>:7330 and create the first account - the first user can always register, even though further registrations are disabled by default. Set ENABLE_REGISTRATIONS=true in /opt/scrob/.env and run 'systemctl restart scrob-backend' to allow more users.",
+      "type": "info"
+    },
+    {
+      "text": "A TMDB Read Access Token is required for metadata. Add it under Settings -> General after the first login, then connect your media servers under Connections -> Media Players.",
+      "type": "warning"
+    },
+    {
+      "text": "Configuration lives in /opt/scrob/.env and uploads/image caches in /opt/scrob_data, so both survive updates. Watch history is stored in the local PostgreSQL database.",
+      "type": "info"
+    }
+  ]
+}
