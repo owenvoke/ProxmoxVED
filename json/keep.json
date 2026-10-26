@@ -1,0 +1,49 @@
+{
+  "name": "Keep",
+  "slug": "keep",
+  "categories": [
+    24
+  ],
+  "date_created": "2026-10-25",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 80,
+  "documentation": "https://github.com/owenvoke/keep",
+  "website": "https://keep-data.voke.dev",
+  "repository": "https://github.com/owenvoke/keep",
+  "logo": "https://cdn.jsdelivr.net/gh/owenvoke/keep@main/public/favicon.svg",
+  "description": "Keep is an open-source tracker for castles and fortifications. It synchronises keeps from the Keep Data project and lets you log your visits, organise keeps into collections and see them on a map.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/keep.sh",
+      "config_path": "/opt/keep_data/.env",
+      "resources": {
+        "cpu": 2,
+        "ram": 2048,
+        "hdd": 6,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "There is no default account: register one at /register, then set REGISTRATION_DISABLED=true in /opt/keep_data/.env and run `php artisan optimize` in /opt/keep to close sign-up.",
+      "type": "warning"
+    },
+    {
+      "text": "Keep data is synchronised from keep-data.voke.dev during install and daily at 03:00. Run `php artisan app:sync` in /opt/keep to sync manually.",
+      "type": "info"
+    },
+    {
+      "text": "Passkeys need a secure context, so serve Keep over HTTPS (for example behind a reverse proxy). Set APP_URL to the HTTPS URL and TRUSTED_PROXIES to the proxy's IP in /opt/keep_data/.env, then run `php artisan optimize` in /opt/keep.",
+      "type": "info"
+    }
+  ]
+}
